@@ -1,0 +1,49 @@
+﻿@model List<Product>
+
+<div class="card shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient m-lg-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-black py-2">Create Product</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <div class="row pt-4 pb-3">
+            <div class="col-6">
+                <h2 class="text-black text-uppercase">
+                    Product List
+                </h2>
+            </div>
+            <div class="col-6 text-end">
+                <a asp-controller="Product" asp-action="Upsert" class="btn btn-dark">
+                    <i class="bi bi-plus-circle"></i> CREATE NEW CATEGORY
+                </a>
+            </div>
+        </div>
+        <div>
+            <table id="tblData" class="table table-bordered table-striped" style="width:100%">
+                <thead>
+                    <tr class="text-uppercase">
+                        <th>Product Name</th>
+                        <th>MRP</th>
+                        <th>Price</th>
+                        <th>Offer</th>
+                        <th>Product Description</th>
+                        <th>About Products</th>
+                        <th>Benifit</th>
+                        <th>Uses</th>
+                        <th>Category</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/js/product.js"></script>
+}

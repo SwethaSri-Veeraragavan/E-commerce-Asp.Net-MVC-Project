@@ -1,0 +1,116 @@
+﻿@model Product
+
+<section>
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col-6 w-50">
+                @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                {
+                    <img src="@Model.ImageUrl" class="img-fluid" alt="Product Image">
+                }
+            </div>
+            <div class="col-4 mt-5">
+                <div class="mb-2">
+                    <h3>@Model.ProductName - 250g</h3>
+                </div>
+                <table class="mb-3">
+                    <tr class="text-decoration-line-through">
+                        <td>
+                            MRP: &#8377; @Model.Mrp
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Price:&#8377; @Model.Price
+                        </td>
+                    <tr>
+                        <td>You Save: &#8377; @Model.Offer</td>
+                    </tr>
+                    <tr>
+                        <td>(inclusive of all taxes)</td>
+                    </tr>
+                </table>
+                <div class="pl-1 mb-3">
+                    <div class="col-md-4">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-light text-success border-0 fw-semibold"
+                                  id="inputGroup-sizing-default">
+                                Count
+                            </span>
+                            <input type="number" value="1" class="form-control text-end"
+                                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-6 pb-1">
+                        <form method="post" asp-controller="Cart" asp-action="AddToCart">
+                            <input type="hidden" name="productId" value="@Model.ProductId" />
+                            <button type="submit" class="btn btn-success bg-gradient w-100 py-2 text-uppercase fw-semibold">
+                                Add to Cart
+                            </button>
+                        </form>
+                        @* <button type="submit"
+                                class="btn btn-success bg-gradient  w-100 py-2 text-uppercase fw-semibold">
+                            Add to Cart
+                        </button> *@
+                    </div>
+                    @*<div class="col-12 col-md-6 pb-1">
+                    <button type="button" class="btn btn-outline-dark btn-lg btn-block p-2">Add to Wishlist</button>
+                    </div>*@
+                    <div class="container mt-2 p-2">
+                        <div class="accordion" id="accordionPanelsStayOpenExample">
+                            <!-- Accordion content -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<h3 class="mt-2">@Model.ProductDescription</h3>
+<hr />
+<div class="container mt-2 p-2">
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                    About Product
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body " style="background-color:#bcf5bc">
+                    @Html.Raw(Model.AboutProduct)
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                    Benefits
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                <div class="accordion-body" style="background-color:#bcf5bc">
+                    @Html.Raw(Model.Benefit)
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                    Storage and Uses
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                <div class="accordion-body" style="background-color:#bcf5bc">
+                    @Html.Raw(Model.Uses)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

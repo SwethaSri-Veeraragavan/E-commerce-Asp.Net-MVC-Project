@@ -1,0 +1,67 @@
+﻿@model Product
+
+<form method="post">
+    <div class="border p-3 my-4">
+        <div class="row pb-2">
+            <h2 class="text-black">Update Product</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="mb-3 row p-1">
+            <label asp-for="ProductName" class="p-0"></label>
+            <input asp-for="ProductName" class="form-control" />
+            <span asp-validation-for="ProductName" class="text-danger"></span>
+        </div>       
+        <div class="mb-3 row p-1">
+            <label asp-for="Mrp" class="p-0"></label>
+            <input asp-for="Mrp" class="form-control" />
+            <span asp-validation-for="Mrp" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Price" class="p-0"></label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Offer" class="p-0"></label>
+            <input asp-for="Offer" class="form-control" />
+            <span asp-validation-for="Offer" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="ProductDescription" class="p-0"></label>
+            <input asp-for="ProductDescription" class="form-control" />
+            <span asp-validation-for="ProductDescription" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="AboutProduct" class="p-0"></label>
+            <textarea asp-for="AboutProduct" class="form-control"></textarea>
+            <span asp-validation-for="AboutProduct" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Benefit" class="p-0"></label>
+            <textarea asp-for="Benefit" class="form-control"></textarea>
+            <span asp-validation-for="Benefit" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Uses" class="p-0"></label>
+            <textarea asp-for="Uses" class="form-control"></textarea>
+            <span asp-validation-for="Uses" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-dark form-control">Update</button>
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-controller="Product" asp-action="Index" class="btn btn-outline-secondary border form-control">
+                    BACK TO LIST
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

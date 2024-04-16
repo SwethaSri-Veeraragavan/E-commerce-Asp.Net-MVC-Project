@@ -1,0 +1,171 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@* <div class="row">
+    <div class=" col-md-12  d-flex align-items-center justify-content-between border" style="background-color: #FFA500">
+        <div class="px-5 w-50">
+            <h5 > Welcome to FreshBuys</h5>
+            <p class="m-0" style="font-size:15px">Get the best in-season fruits, local finds, and <br /> all your favorite grocery brands delivered.</p>
+        </div>       
+        <img class="img-fluid" style="height:125px" src="~/img/offer-banner.png" alt="offer-banner" />
+        <h6>&#8377; 100 OFF <br /> &#8377; 50 OFF + free shipping for 1st 2 Orders..</h6>
+
+        <div class="mx-2">
+            <img class="img-fluid" style="height:120px;width:250px" src="~/img/free-delivery-poster-1.png" alt="free-delivery" />
+        </div> 
+        <div class="flex m-0">
+            <img class="img-fluid text-end mx-4 w-100" style="height:120px" src="" alt="vegetables-banner" />
+        </div>
+    </div>
+    
+</div> *@
+<div class="container-fluid"> 
+    <div class="container py-5">
+        <div class="row d-flex align-items-center">
+            <div class="col-md-12 col-lg-7">
+
+                <h4 class="mb-2">100% Organic Foods</h4>
+                <h1 class="mb-2">Organic Veggies & Fruits Foods</h1>
+                <div>
+                    <a asp-controller="Home" asp-action="Shop" class="btn btn-success mt-3" type="submit">Shop Now <i class="bi bi-arrow-right"></i></a>
+                </div>
+
+            </div>
+            <div class="col-md-12 col-lg-5">
+                <img src="~/img/vegetables-banner-img.jpg" class="img-fluid" alt="organic-products-hero">
+            </div>
+        </div>
+       
+    </div> 
+</div>
+<!-- Hero End -->
+<section>
+    <div class="d-flex align-items-center justify-content-center ">
+        <div class="row">
+            <div class="card ms-2 text-center d-flex align-self-stretch" style="width: 15rem;">
+                <div class="card-body">
+                    <img class="img-fluid w-50" src="~/img/fast-delivery.png" alt="fast-delivery" />
+                    <h5 class="card-title">FREE SHIPPING</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">ON ORDER OVER INR 500</h6>                   
+                </div>
+            </div>
+            <div class="card ms-3 text-center d-flex align-self-stretch " style="width: 15rem;">
+                <div class="card-body">
+                    <img class="img-fluid w-50" src="~/img/vegetables.png" alt="fast-delivery" />
+                    <h5 class="card-title">ALWAYS FRESH</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">PRODUCT WELL PACKAGE</h6>                    
+                </div>
+            </div>
+            <div class="card ms-3 text-center d-flex align-self-stretch" style="width: 15rem;">
+                <div class="card-body">
+                    <img class="img-fluid w-50" src="~/img/medal.png" alt="fast-delivery" />
+                    <h5 class="card-title">SUPERIOR QUALITY</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">QUALITY PRODUCTS</h6>                    
+                </div>
+            </div>
+            <div class="card ms-3 text-center d-flex align-self-stretch" style="width: 15rem;">
+                <div class="card-body">
+                    <img class="img-fluid w-50" src="~/img/customer-service.png" alt="fast-delivery" />
+                    <h5 class="card-title">SUPPORT</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">24/7 SUPPORT</h6>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-md-12 col-lg-7 mt-5">
+            <img class="img-fluid" src="~/img/berries-background.jpg" alt="longleaf" />           
+        </div>
+        <div class=" col-md-12 col-lg-5 mt-5 text-center">
+            <h5>Fruits</h5>
+            <h6>Deliciously Fresh, Naturally Nutritious.</h6>
+        </div>
+    </div>
+</section>
+<!-- our Products -->
+<div class="container mt-5 p-3">
+    <div class="row justify-content-center mb-3 pb-3">
+        <div class="col-md-12  text-center">
+            <span>Featured Products</span>
+            <h2 class="mb-2">OUR PRODUCTS</h2>
+            <p>Deliciously Fresh, Naturally Nutritious.</p>
+        </div>
+    </div>
+</div>
+<!-- End our Products -->
+<!-- Products -->
+<div>
+    <h3>Fresh Deals: The Week's best for less..</h3>
+</div>
+<div class="container">
+    <div class="row">
+        @foreach( var product in Model)
+        {
+            <div class="col-md-6 col-lg-3">
+                <div class="product">
+                    <a href="" class="img1">
+                        <img class="img-fluid" src="@product.ImageUrl" alt="friut1" />
+                    </a>
+                    <div class="card-body pb-0">
+                        <div class="pl-1">
+                            <p class="card-title  text-dark opacity-75 text-uppercase text-center">@product.ProductName</p>
+                        </div>
+                        <div class="pl-1">
+                            <p class="text-dark text-opacity-75 text-center mb-0">
+                                <span class=" text-decoration-line-through">MRP: &#8377;@product.Mrp</span>
+                            </p>
+                        </div>
+                        <div class="pl-1">
+                            <p class="text-dark text-opacity-75 text-center">
+                                <span>Price: &#8377; @product.Price</span>
+                            </p>
+                        </div>
+                        <div class="d-flex pb-2">
+                            <div class="row m-auto d-flex">
+                                <form method="post" asp-controller="Cart" asp-action="AddToCart">
+                                    <input type="hidden" name="productId" value="@product.ProductId" />
+                                    <button type="submit" class="btn btn-success bg-gradient w-100 py-2 text-uppercase fw-semibold">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        
+       
+    </div>
+</div>
+<!--End Products -->
+<section class="backgroud-img p-0 mt-5">
+    <div class="backgroud-img-1" style="background-image: url(img/background-vegetable-1.jpg);">
+        <div class="container">
+            <div class="row justify-content-center mt-3 px-5">
+                <div class="col-md-6 opacity-2 mt-5 p-3">                
+                    <div class="mx-2">
+                        <span>Best Price For You</span>
+                        <h2 class="mb-4">Deal of the day</h2>
+                        <p class="pb-2">"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia"</p>
+                        <h3>Spinach</h3>
+                        <span class="text-decoration-line-through">
+                            &#8377;10                           
+                        </span>
+                        <span>NOW &#8377;5 only</span>
+                        <div id="timer" class="d-flex mt-5">
+                            <div></div>
+                        </div>                    
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,60 @@
+﻿@using Bigbasket.Models
+@model Product
+
+<h2>@TempData["Success"]</h2>
+<form method="post">
+    <div class="border p-3 my-4">
+        <div class="row pb-2">
+            <h2 class="text-black">Delete Product</h2>
+            <hr />
+        </div>      
+        <div class="mb-3 row p-1">
+            <label asp-for="ProductName" class="p-0"></label>
+            <input asp-for="ProductName" disabled class="form-control" />          
+        </div>       
+        <div class="mb-3 row p-1">
+            <label asp-for="Mrp" class="p-0"></label>
+            <input asp-for="Mrp" disabled class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Price" class="p-0"></label>
+            <input asp-for="Price" disabled class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Offer" class="p-0"></label>
+            <input asp-for="Offer" disabled class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="ProductDescription" class="p-0"></label>
+            <input asp-for="ProductDescription" disabled class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="AboutProduct" class="p-0"></label>
+            <input asp-for="AboutProduct" disabled class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Benefit" class="p-0"></label>
+            <input asp-for="Benefit" disabled class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Uses" class="p-0"></label>
+            <input asp-for="Uses" disabled class="form-control" />
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-danger form-control">Delete</button>
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-controller="Product" asp-action="Index" class="btn btn-outline-secondary border form-control">
+                    BACK TO LIST
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
